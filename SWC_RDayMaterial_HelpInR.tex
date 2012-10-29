@@ -1,0 +1,94 @@
+\documentclass{article}
+
+\usepackage{multicol}
+\usepackage[landscape]{geometry}
+\usepackage{Sweave}
+\usepackage{fullpage}
+\usepackage{url}
+\usepackage{setspace}
+
+% fake r style so that I can use multicolumn environment
+\newcommand{\rstyle}[1] {\begin{description} \item[]\texttt{>
+        #1} \end{description}}
+
+\raggedright
+
+\begin{document}
+\singlespacing
+
+
+
+\begin{multicols}{2}
+
+{\huge \bf{R help cheatsheet}}
+\footnotesize
+
+\section{Built-in sources of help}
+
+to show the official R help page for a function or package:
+\rstyle{?function.name}
+\rstyle{help(function.name)}
+\begin{itemize}
+\item to start the hypertext version of the help pages
+\rstyle{start.help()}
+\item apropos: search the help pages by object name
+\rstyle{apropos('keyword')}
+
+\item to search the help pages by field (title, topic, description)
+\rstyle{??'keyword'}
+\rstyle{help.search('keyword')}
+
+\item to view all the implementations of a particular S3 method (e.g. \texttt{print()})
+\rstyle{methods(generic.function) \# e.g. methods(print)}
+
+\item to see the source of a hidden function:
+\rstyle{getAnywhere(hidden.function)}
+  
+\item example: run the example section of a help page
+\rstyle{example(function.name)}
+
+\item run demonstration scripts when available
+\rstyle{demo(function.name)}
+
+\item vignette: more extensive writeup/walk-through/tutorial of a package's functionality
+\rstyle{vignette(package.name)}
+
+\item to call the reference manuals (also on the web at \url{'http://cran.r-project.org/manuals.html'}):
+\rstyle{RShowDoc('R-intro') \# see ?RShowDoc for more}
+\end{itemize}
+
+\section{Mailing lists}
+\begin{itemize}
+\item user-friendly: Stack Overflow (use R tag)
+\item r-help: the original forum for helping R users, \url{...}
+\item r-devel: a forum for R developers, \url{...}
+\item stringent on forum rules
+\end{itemize}
+
+
+\section{Finding stuff on the web:}
+\begin{itemize}
+\item rseek: google search on R-related web sites
+\item CRAN: package archive (includes reference manual, vignettes, package source code)
+\item includes tutorials and manuals : \url{...}
+\item bioconductor?
+\item r graph gallery -- nice graphics example with code : \url{...}
+\end{itemize}
+
+
+\section{If you are a KeeneR}
+\begin{itemize}
+\item R bloggers: automatically collects posts on R-related blogs
+\item R journal: short to medium length articles covering topics that might be of interest to users or developers of R
+\item add-on packages: short introductions to R extension packages.
+\item hints for programming in R
+\item hints for newcomers explaining aspects of R that might not be so obvious from reading the manuals and FAQs.
+\item applications: demonstrating how a new or existing technique can be applied in an area of current interest using R
+\item for instance, details of how the help system works and how to
+  write help pages are in issue 2, 2009 \url{http://journal.r-project.org/archive/2009-2/RJournal_2009-2_Murdoch+Urbanek.pdf}
+
+\item the NEWS file: documents all changes in each version of R
+  (useful if your package stops working the way it used to)
+\end{itemize}
+  \end{multicols}
+\end{document}
